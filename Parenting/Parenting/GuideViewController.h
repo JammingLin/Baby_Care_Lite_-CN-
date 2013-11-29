@@ -3,8 +3,8 @@
 //  Amoy Baby Care
 //
 //  Created by CHEN WEIBIN on 13-11-26.
-//  Copyright (c) 2013年 奥芬多. All rights reserved.
-//
+//  Copyright (c) 2013年 陈伟斌. All rights reserved.
+//哈哈
 
 #import <UIKit/UIKit.h>
 #import "defaultAppDelegate.h"
