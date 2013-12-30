@@ -12,7 +12,7 @@
 {
     NSArray *arrMyDevices;
     NSArray *arrAdd;
-    NSArray *arrData;
+    NSMutableArray *arrData;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

@@ -7,6 +7,7 @@
 //
 
 #import "MyDevicesTableViewController.h"
+#import "MyDevicesTableCell.h"
 #import "BindingDeviceViewController.h"
 
 @interface MyDevicesTableViewController ()
@@ -21,15 +22,50 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        
+        [self.view setBackgroundColor:[UIColor colorWithRed:239.0/255 green:239.0/255 blue:239.0/255 alpha:1]];
+        self.hidesBottomBarWhenPushed=YES;
     }
     return self;
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    [self.view setBackgroundColor:[UIColor colorWithRed:239.0/255 green:239.0/255 blue:239.0/255 alpha:1]];
-    self.hidesBottomBarWhenPushed = YES;
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 60, 200, 20)];
+        titleView.backgroundColor=[UIColor clearColor];
+        UILabel *titleText = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+        titleText.backgroundColor = [UIColor clearColor];
+        [titleText setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
+        titleText.textColor = [UIColor whiteColor];
+        [titleText setTextAlignment:NSTextAlignmentCenter];
+        [titleText setText:NSLocalizedString(@"My Devices", nil)];
+        [titleView addSubview:titleText];
+        
+        [self.view setBackgroundColor:[UIColor colorWithRed:239.0/255 green:239.0/255 blue:239.0/255 alpha:1]];
+        self.navigationItem.titleView = titleView;
+        //self.title  = NSLocalizedString(@"Baby information",nil ) ;
+        self.hidesBottomBarWhenPushed=YES;
+        //self.automaticallyAdjustsScrollViewInsets = NO;
+#define IOS7_OR_LATER   ( [[[UIDevice currentDevice] systemVersion] compare:@"7.0"] != NSOrderedAscending )
+        
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+        if ( IOS7_OR_LATER )
+        {
+            self.edgesForExtendedLayout = UIRectEdgeNone;
+            self.extendedLayoutIncludesOpaqueBars = NO;
+            self.modalPresentationCapturesStatusBarAppearance = NO;
+        }
+#endif  // #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+    }
+    return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+}
+
+-(void)viewDidAppear:(BOOL)animated{
 }
 
 - (void)viewDidLoad
@@ -40,28 +76,42 @@
     
     tableView= [[UITableView alloc]initWithFrame:CGRectMake(self.view.bounds.origin.x, self.view.bounds.origin.y, self.view.bounds.size.width, self.view.bounds.size.height) style:UITableViewStyleGrouped];
     tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight;
+    
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(60, 60, 60, 30)];
+    [btn setTitle:@"hahaha" forState:UIControlStateNormal    ];
+    [btn addTarget:self action:@selector(tempBtn) forControlEvents:UIControlEventTouchUpInside];
+    
+//    [self.view addSubview:btn];
+}
+
+-(void)tempBtn
+{
+    [arrData removeAllObjects];
+    //载入数据
+    arrData = [NSMutableArray arrayWithObjects:@"aaa",@"bbb",nil];
+    [tableView reloadData];
 }
 
 -(void)dataInitialize{
     //处理已绑定设备
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"BLEPERIPHERAL_ACTIVITY"] != nil) {
-        NSString *peripheral1 =[[NSUserDefaults standardUserDefaults] stringForKey:@"BLEPERIPHERAL_ACTIVITY"];
-        [arrMyDevices arrayByAddingObject:peripheral1];
+        arrMyDevices = [[NSArray alloc] initWithObjects:@"移动记录设备", nil];
     }
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"BLEPERIPHERAL_ENVIRONMENT"] != nil) {
-        NSString *peripheral2 =[[NSUserDefaults standardUserDefaults] stringForKey:@"BLEPERIPHERAL_ENVIRONMENT"];
-        [arrMyDevices arrayByAddingObject:peripheral2];
+//        NSArray *peripheral2 = [[NSArray alloc] initWithObjects:@"环境记录设备", nil];
+//        arrMyDevices = [arrMyDevices arrayByAddingObject:peripheral2];
     }
     
     arrAdd = [[NSArray alloc] initWithObjects:@"绑定配件",nil];
     if (arrMyDevices == nil) {
-        arrData = [[NSArray alloc] initWithObjects:arrAdd, nil];
-
+        arrData = [[NSMutableArray alloc]initWithObjects:arrAdd, nil];
     }
     else{
-        arrData = [[NSArray alloc] initWithObjects:arrMyDevices, arrAdd, nil];
+        arrData = [[NSMutableArray alloc] initWithObjects:arrMyDevices, arrAdd, nil];
     }
+    
+    [tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,6 +121,10 @@
 }
 
 #pragma mark - Table view data source
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -90,35 +144,35 @@
 
 - (UITableViewCell *)tableView:(UITableView *)ctableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //制作可重復利用的表格栏位Cell
-    static NSString *CellIdentifier = @"CellIdentifier";
-    
-    UITableViewCell *cell = [ctableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.textLabel.font=[UIFont systemFontOfSize:17];
-        cell.textLabel.textColor=[UIColor blueColor];
-
+    MyDevicesTableCell *cell = (MyDevicesTableCell*) [tableView dequeueReusableCellWithIdentifier:@"MyDevicesTableCell"];
+    if(cell == nil)
+    {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MyDevicesTableCell" owner:[MyDevicesTableCell class] options:nil];
+        cell = (MyDevicesTableCell *)[nib objectAtIndex:0];
+        cell.contentView.backgroundColor = [UIColor clearColor];
         
         if (indexPath.section == 1) {
-//            此处添加硬件设备外观图 & 是否已连接标示
-//            cell.imageView.image = [UIImage imageNamed:@"icon_connected"];
-            cell.accessoryType = UITableViewCellAccessoryDetailButton;
+            //            此处添加硬件设备外观图 & 是否已连接标示
+            //            cell.imageView.image = [UIImage imageNamed:@"icon_connected"];
+            cell.imageViewRight.image = [UIImage imageNamed:@"temp_icon_ADD.png"];
+            cell.labelTitle.center = CGPointMake(20, 20);
+            cell.labelTitle.text = @"绑定配件";
+            //48 13
         }
         else{
-            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            //cell.imageViewLeft.image = [UIImage imageNamed:@"temp_icon_ADD.png"];
+            cell.labelTitle.center = CGPointMake(48, 13);
+            cell.labelTitle.text = [[arrData objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+
         }
     }
-
-    
-    //设定栏位的内容与类型
-    cell.textLabel.text = [[arrData objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)ctableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [ctableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     if (indexPath.section == [arrData count] - 2) {
         //进入配件编辑页面
     }
@@ -130,5 +184,7 @@
     }
     
 }
+
+
 
 @end

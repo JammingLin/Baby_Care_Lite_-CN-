@@ -47,6 +47,8 @@
 #define SHAREPATH ([NSString stringWithFormat:@"%@/Documents/share.png",NSHomeDirectory()])
 #define DBPATH ([NSString stringWithFormat:@"%@/Documents/babycare.db",NSHomeDirectory()])
 
+#define SDBPATH ([NSString stringWithFormat:@"%@/Documents/BabySuggestion.rdb",NSHomeDirectory()])
+
 #define ADVISE_TYPE_DIAPER 1
 #define ADVISE_TYPE_SLEEP  2
 #define ADVISE_TYPE_PLAY   3
@@ -95,6 +97,16 @@
 #define JPUSHAPPKEY    @"415aa5c57db9b6d73d91c2af"
 
 #define GuideVerson    @"1.4.0"
+
+#define ASIHTTPADDRESS @"http://192.168.1.138:8033/babycare/WCF/SyncSuggestionData.svc/" //接口IP
+#define ASIHTTPTOKEN @"5788024"  //令牌
+
+#define SUGGESTION_TYPE_TEMP    2
+#define SUGGESTION_TYPE_HUMI    1
+#define SUGGESTION_TYPE_LIGHT   4
+#define SUGGESTION_TYPE_NOICE   3
+#define SUGGESTION_TYPE_UV      5
+#define SUGGESTION_TYPE_PM25    6
 
 //*** 蓝牙设备连接参数
 #define PRESS_KEY_DIAPER 1

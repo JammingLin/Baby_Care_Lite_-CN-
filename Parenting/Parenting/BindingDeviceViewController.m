@@ -43,17 +43,16 @@
 
 -(void)dataInitialize{
     NSArray *peripheral1 = [[NSArray alloc] initWithObjects:@"移动记录设备", nil];
-    NSArray *peripheral2 = [[NSArray alloc] initWithObjects:@"环境检测设备", nil];
-    
     arrayData = [[NSMutableArray alloc]init];
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"BLEPERIPHERAL_ACTIVITY"] == nil) {
         [arrayData addObject:peripheral1];
     }
-    
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"BLEPERIPHERAL_ENVIRONMENT"] == nil) {
-        [arrayData addObject:peripheral2];
-    }
+
+//    NSArray *peripheral2 = [[NSArray alloc] initWithObjects:@"环境检测设备", nil];
+//    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"BLEPERIPHERAL_ENVIRONMENT"] == nil) {
+//        [arrayData addObject:peripheral2];
+//    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,6 +102,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     //设备类型:1-生理环境记录设备  2-环境信息采集设备
     LookingForDeviceViewController *looking = [[LookingForDeviceViewController alloc] init];
     looking.deviceId = indexPath.section;

@@ -36,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    isFound =YES;
     //判断搜索硬件类别
     _deviceId = 0;
     
@@ -52,9 +52,13 @@
         isTimeOut=YES;
     }
     else{
-        peripherals=foundPeripherals;
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"搜索到" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",@"取消", nil];
-        [alert show];
+        if (isFound) {
+            peripherals=foundPeripherals;
+            [_bleController stopscan];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"搜索到" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定",@"取消", nil];
+            [alert show];
+        }
+        isFound=NO;
     }
 }
 
@@ -92,6 +96,7 @@
 -(void)scanFail
 {
     [_bleController stopscan];
+    NSLog(@"搜索失败,停止搜索配件");
     _imageView.image = [UIImage imageNamed:@"scanfail_1.jpg"];
     _buttonRescan = [[UIButton alloc]initWithFrame:CGRectMake(100, 360, 120, 24)];
     [_buttonRescan setTitle:@"重新搜寻" forState:UIControlStateNormal];
@@ -107,16 +112,33 @@
         //活动信息设备绑定
         if (_deviceId==0) {
             [[NSUserDefaults standardUserDefaults] setObject:[[peripherals objectAtIndex:0] name] forKey:@"BLEPERIPHERAL_ACTIVITY"];
+            
+            for (UIViewController *myDT in self.navigationController.viewControllers) {
+                if ([myDT isKindOfClass:[SettingViewController class]]) {
+                    [self.navigationController popToViewController:myDT animated:YES];
+                    break;
+                }
+            }
         }
         //else if 其他设备绑定 BLEPERIPHERAL_ENVIRONMENT
     }
     else if (buttonIndex==1){
-        
+        return;
     }
 }
 
 
 #pragma sys
+
+-(void)viewDidAppear:(BOOL)animated{
+   
+}
+
+-(void)viewWillDisappear:(BOOL)animated {
+    [_bleController stopscan];
+    NSLog(@"跳出页面,停止搜索配件");
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

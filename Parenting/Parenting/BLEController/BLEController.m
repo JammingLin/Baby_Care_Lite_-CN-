@@ -88,6 +88,8 @@
     
     connectPeripheral = peripheral;
     [self.bleControllerDelegate DidConnected:YES];
+    
+    [self setSystemTime];
 }
 
 - (void) didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
@@ -104,7 +106,7 @@
 - (void) didReceiveData:(CBPeripheral *)peripheral recvData:(NSData *)recvData
 {
     NSLog(@"uart recv(%d):%@", [recvData length], recvData);
-    [self.bleControllerDelegate RecvBTData:recvData];
+    [self RecvBTData:recvData];
 }
 #pragma -mark pid deal
 - (void) resp_set_sys_time : (NSData*) data
@@ -124,9 +126,6 @@
             hexStr = [hexStr stringByAppendingString:str];
         }
     }
-    
-    //do someting
-    
 }
 
 -(void) resp_get_history :(NSData*) data
@@ -146,6 +145,7 @@
         }
     }
     
+    isSaved = YES;
     //******cwb******
     if (![hexStr  isEqual: @"00000000000000000000"]){
         //进行解析并存入数据库
@@ -173,12 +173,12 @@
         NSLog(@"%@",startTime);
         
         //五个按钮:喂食,换尿布,洗澡,睡觉,玩耍
-#define BLUETOOTH_BUTTON_FEED   @"01"
-#define BLUETOOTH_BUTTON_DIAPER @"02"
+#define BLUETOOTH_BUTTON_FEED   @"04"
+#define BLUETOOTH_BUTTON_DIAPER @"05"
 #define BLUETOOTH_BUTTON_BATH   @"03"
-#define BLUETOOTH_BUTTON_SLEEP  @"04"
-#define BLUETOOTH_BUTTON_PLAY   @"05"
-        
+#define BLUETOOTH_BUTTON_SLEEP  @"01"
+#define BLUETOOTH_BUTTON_PLAY   @"02"
+        DataBase *db = [[DataBase alloc]init];
         if (startTime == nil){
             //数据格式错误，异常数据处理
             //isSaved = NO;
@@ -186,26 +186,29 @@
         }
         else if ([buttonID  isEqual: BLUETOOTH_BUTTON_FEED]) {
             //db insertFeed
-            isSaved = YES;
+            isSaved = [db insertfeedStarttime:startTime Month:[currentdate getMonthFromDate:startTime] Week:[currentdate getWeekFromDate:startTime] WeekDay:[currentdate getWeekDayFromDate:startTime] Duration:hDuration Feedway:0 OzorLR:@"" Remark:@""];
         }
         else if ([buttonID  isEqual: BLUETOOTH_BUTTON_DIAPER]) {
             //db insertDiaper
-            isSaved = YES;
+            isSaved = [db insertdiaperStarttime:startTime Month:[currentdate getMonthFromDate:startTime] Week:[currentdate getWeekFromDate:startTime]  WeekDay:[currentdate getWeekDayFromDate:startTime] Status:@"" Remark:@""];
         }
         else if ([buttonID  isEqual: BLUETOOTH_BUTTON_BATH]) {
             //db insertBath
-            isSaved = YES;
+            isSaved = [db insertbathStarttime:startTime Month:[currentdate getMonthFromDate:startTime] Week:[currentdate getWeekFromDate:startTime]   WeekDay:[currentdate getWeekDayFromDate:startTime] Duration:hDuration Remark:@""];
         }
         else if ([buttonID  isEqual: BLUETOOTH_BUTTON_SLEEP]) {
-            //            [db insertplayStarttime:startTime Month:[currentdate getMonthFromDate:startTime] Week:[currentdate getWeekFromDate:startTime] WeekDay:[currentdate getWeekDayFromDate:startTime] Duration:(hDuration) Remark:@""];
-            isSaved = YES;
+            isSaved = [db insertsleepStarttime:startTime Month:[currentdate getMonthFromDate:startTime] Week:[currentdate getWeekFromDate:startTime] WeekDay:[currentdate getWeekDayFromDate:startTime] Duration:hDuration Remark:@""];
         }
         else if ([buttonID  isEqual: BLUETOOTH_BUTTON_PLAY]) {
             //db insertPlay
-            isSaved = YES;
+            isSaved = [db insertplayStarttime:startTime Month:[currentdate getMonthFromDate:startTime] Week:[currentdate getWeekFromDate:startTime] WeekDay:[currentdate getWeekDayFromDate:startTime] Duration:(hDuration) Remark:@""];
         }
         
         [self getPressKeyHistory:1];
+    }
+    else
+    {
+        [self.bleControllerDelegate RecvDataFinish:YES];
     }
     //******endcwb******
 }
@@ -248,6 +251,8 @@
             [self resp_get_history:respData];
             break;
         default:
+            //提取结束
+            [self.bleControllerDelegate RecvDataFinish:YES];
             break;
     }
     
@@ -406,9 +411,7 @@
         //******定义isSaved，如果isSaved=true，则ucaCmdData=2，删除该条数据*******
         //******如果isSaved=false，则ucaCmdData=1，跳过该条数据。*******
         if (isSaved) {
-            //          ucaCmdData[4] = 2;
-            //测试用
-            ucaCmdData[4] = 1;
+            ucaCmdData[4] = 2;
         }
         else  {
             ucaCmdData[4] = 1;

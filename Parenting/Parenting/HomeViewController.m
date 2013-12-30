@@ -44,6 +44,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    isFound = YES;
+    
     if ([UIApplication sharedApplication].statusBarStyle != UIStatusBarStyleLightContent) {
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     }
@@ -76,6 +78,7 @@
         
     }
     //self.navigationItem.title=[[NSUserDefaults standardUserDefaults] objectForKey:@"name"];
+
     if (titleView == nil) {
         titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 40, 240, 40)];
         titleView.backgroundColor=[UIColor clearColor];
@@ -88,6 +91,17 @@
     }
     [titleText setText:[[NSUserDefaults standardUserDefaults] objectForKey:@"name"]];
     self.navigationItem.titleView = titleView;
+    
+    //cwb-添加蓝牙同步按钮
+    buttonSyncBLE=[UIButton buttonWithType:UIButtonTypeCustom];
+    buttonSyncBLE.frame=CGRectMake(265, 28, 43, 28);
+    [buttonSyncBLE setBackgroundImage:[UIImage imageNamed:@"btn_syncBLE.png"]  forState:UIControlStateNormal];
+    [buttonSyncBLE addTarget:self action:@selector(connectBLEController) forControlEvents:UIControlEventTouchUpInside];
+//    UIBarButtonItem *backbar=[[UIBarButtonItem alloc]initWithCustomView:buttonSyncBLE];
+//    self.navigationItem.rightBarButtonItem=backbar;
+    [self.navigationController.view addSubview:buttonSyncBLE];
+    
+    
     
     babyImage.image=[UIImage imageWithData:[NSData dataWithContentsOfFile:PHOTOPATH]];
     [[NSUserDefaults standardUserDefaults] setObject:@"1" forKey:@"MARK"];
@@ -128,6 +142,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [timer invalidate];
+    [buttonSyncBLE removeFromSuperview];
 }
 
 -(void)viewDidDisappear:(BOOL)animated
@@ -753,4 +768,79 @@
 //    self.navigationItem.titleView = titleView;
 //    self.title=[[NSUserDefaults standardUserDefaults]     objectForKey:@"name"];
 }
+
+#pragma cwb:
+-(void)connectBLEController{
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"BLEPERIPHERAL_ACTIVITY"] != nil) {
+        //已绑定过设备,进行数据同步
+        bleController = [[BLEController alloc]init];
+        bleController.bleControllerDelegate = self;
+        timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timeGo) userInfo:nil repeats:YES];
+        isTimeOut=NO;
+        [bleController startscan];
+        buttonSyncBLE.enabled=NO;
+    }else{
+        //未绑定设备，提示并跳入绑定设备页面
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"转到引导介绍图或跳入绑定界面" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+-(void)scanResult:(BOOL)result with:(NSMutableArray  *)foundPeripherals{
+    if (!result) {
+        isTimeOut=YES;
+    }
+    else {
+        //Peripherals的名字跟配件名字匹配 如果不匹配还是提示错误
+        if (isFound) {
+            NSString *sysPeripheralsName =[[NSUserDefaults standardUserDefaults] objectForKey:@"BLEPERIPHERAL_ACTIVITY"];
+            if ([sysPeripheralsName isEqualToString:[[foundPeripherals objectAtIndex:0] name]])
+            {
+                //同步数据
+                [bleController bleconnect];
+            }else
+            {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"同步失败,请确定\n①手机蓝牙已开启\n②配件已开启并在手机附近" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alert show];
+            }
+            isFound = NO;
+            [bleController stopscan];
+        }
+    }
+}
+
+#pragma protocol
+-(void)DidConnected:(BOOL)isConnected
+{
+    if (isConnected) {
+        [bleController getPressKeyHistory:1];
+    }
+}
+
+-(void)RecvDataFinish:(BOOL)isFinished{
+    buttonSyncBLE.enabled=YES;
+    isFound=YES;
+    [bleController bledisconnect];
+    
+    //重新加载数据
+    [self LoadData];
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"同步完成!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+    [alert show];
+}
+
+-(void)timeGo
+{
+    if (isTimeOut && isFound) {
+        //连接失败,提醒距离
+        [bleController stopscan];
+        [timer invalidate];
+
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"同步失败,请确定\n①手机蓝牙已开启\n②配件已开启并在手机附近" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+        [alert show];
+        isFound = NO;
+    }
+}
+
 @end

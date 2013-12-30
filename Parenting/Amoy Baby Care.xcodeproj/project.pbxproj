@@ -216,6 +216,25 @@
 		BE5997D018619320008D3F6C /* TipsMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5997CE18619320008D3F6C /* TipsMasterViewController.xib */; };
 		BE5997D418619339008D3F6C /* lookingDevice.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE5997D218619339008D3F6C /* lookingDevice.jpg */; };
 		BE5997D518619339008D3F6C /* scanfail_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE5997D318619339008D3F6C /* scanfail_1.jpg */; };
+		BE7C69341867D87000C4B675 /* ASIHTTPController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C69331867D87000C4B675 /* ASIHTTPController.m */; };
+		BE7C69361867DCCE00C4B675 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE7C69351867DCCE00C4B675 /* MobileCoreServices.framework */; };
+		BE7C69771867F1B300C4B675 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C69641867F1B300C4B675 /* ASIAuthenticationDialog.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE7C69781867F1B300C4B675 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C69671867F1B300C4B675 /* ASIDataCompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE7C69791867F1B300C4B675 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C69691867F1B300C4B675 /* ASIDataDecompressor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE7C697A1867F1B300C4B675 /* ASIDownloadCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C696B1867F1B300C4B675 /* ASIDownloadCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE7C697B1867F1B300C4B675 /* ASIFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C696D1867F1B300C4B675 /* ASIFormDataRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE7C697C1867F1B300C4B675 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C696F1867F1B300C4B675 /* ASIHTTPRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE7C697D1867F1B300C4B675 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C69731867F1B300C4B675 /* ASIInputStream.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE7C697E1867F1B300C4B675 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C69751867F1B300C4B675 /* ASINetworkQueue.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE7C69811867F33100C4B675 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C69801867F33100C4B675 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		BE7C698418681A2000C4B675 /* SuggestionDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C698318681A2000C4B675 /* SuggestionDataBase.m */; };
+		BE7C6986186836F000C4B675 /* Babyinfo-cwb.rdb in Resources */ = {isa = PBXBuildFile; fileRef = BE7C6985186836F000C4B675 /* Babyinfo-cwb.rdb */; };
+		BE7C698918692ED100C4B675 /* btn_syncBLE.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7C698718692ED100C4B675 /* btn_syncBLE.png */; };
+		BE7C698A18692ED100C4B675 /* btn_syncBLE@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7C698818692ED100C4B675 /* btn_syncBLE@2x.png */; };
+		BE7C698D1869977300C4B675 /* MyDevicesTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7C698C1869977300C4B675 /* MyDevicesTableCell.m */; };
+		BE7C698F186997AA00C4B675 /* MyDevicesTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE7C698E186997AA00C4B675 /* MyDevicesTableCell.xib */; };
+		BE7C699218699B8C00C4B675 /* temp_icon_ADD.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7C699018699B8C00C4B675 /* temp_icon_ADD.png */; };
+		BE7C699318699B8C00C4B675 /* temp_icon_ADD@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE7C699118699B8C00C4B675 /* temp_icon_ADD@2x.png */; };
 		CE0167B3174B059000462363 /* btn_delete.png in Resources */ = {isa = PBXBuildFile; fileRef = CE01679D174B059000462363 /* btn_delete.png */; };
 		CE0167B4174B059000462363 /* btn_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CE01679E174B059000462363 /* btn_delete@2x.png */; };
 		CE0167B5174B059000462363 /* btn_delete_focus.png in Resources */ = {isa = PBXBuildFile; fileRef = CE01679F174B059000462363 /* btn_delete_focus.png */; };
@@ -881,6 +900,41 @@
 		BE5997CE18619320008D3F6C /* TipsMasterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TipsMasterViewController.xib; sourceTree = "<group>"; };
 		BE5997D218619339008D3F6C /* lookingDevice.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lookingDevice.jpg; sourceTree = "<group>"; };
 		BE5997D318619339008D3F6C /* scanfail_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = scanfail_1.jpg; sourceTree = "<group>"; };
+		BE7C69321867D87000C4B675 /* ASIHTTPController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIHTTPController.h; path = ASIHTTPController/ASIHTTPController.h; sourceTree = "<group>"; };
+		BE7C69331867D87000C4B675 /* ASIHTTPController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASIHTTPController.m; path = ASIHTTPController/ASIHTTPController.m; sourceTree = "<group>"; };
+		BE7C69351867DCCE00C4B675 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		BE7C69631867F1B300C4B675 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
+		BE7C69641867F1B300C4B675 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
+		BE7C69651867F1B300C4B675 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
+		BE7C69661867F1B300C4B675 /* ASIDataCompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataCompressor.h; sourceTree = "<group>"; };
+		BE7C69671867F1B300C4B675 /* ASIDataCompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataCompressor.m; sourceTree = "<group>"; };
+		BE7C69681867F1B300C4B675 /* ASIDataDecompressor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDataDecompressor.h; sourceTree = "<group>"; };
+		BE7C69691867F1B300C4B675 /* ASIDataDecompressor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDataDecompressor.m; sourceTree = "<group>"; };
+		BE7C696A1867F1B300C4B675 /* ASIDownloadCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIDownloadCache.h; sourceTree = "<group>"; };
+		BE7C696B1867F1B300C4B675 /* ASIDownloadCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIDownloadCache.m; sourceTree = "<group>"; };
+		BE7C696C1867F1B300C4B675 /* ASIFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIFormDataRequest.h; sourceTree = "<group>"; };
+		BE7C696D1867F1B300C4B675 /* ASIFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIFormDataRequest.m; sourceTree = "<group>"; };
+		BE7C696E1867F1B300C4B675 /* ASIHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequest.h; sourceTree = "<group>"; };
+		BE7C696F1867F1B300C4B675 /* ASIHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIHTTPRequest.m; sourceTree = "<group>"; };
+		BE7C69701867F1B300C4B675 /* ASIHTTPRequestConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestConfig.h; sourceTree = "<group>"; };
+		BE7C69711867F1B300C4B675 /* ASIHTTPRequestDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIHTTPRequestDelegate.h; sourceTree = "<group>"; };
+		BE7C69721867F1B300C4B675 /* ASIInputStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIInputStream.h; sourceTree = "<group>"; };
+		BE7C69731867F1B300C4B675 /* ASIInputStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIInputStream.m; sourceTree = "<group>"; };
+		BE7C69741867F1B300C4B675 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASINetworkQueue.h; sourceTree = "<group>"; };
+		BE7C69751867F1B300C4B675 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASINetworkQueue.m; sourceTree = "<group>"; };
+		BE7C69761867F1B300C4B675 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIProgressDelegate.h; sourceTree = "<group>"; };
+		BE7C697F1867F33100C4B675 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		BE7C69801867F33100C4B675 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		BE7C698218681A2000C4B675 /* SuggestionDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionDataBase.h; sourceTree = "<group>"; };
+		BE7C698318681A2000C4B675 /* SuggestionDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuggestionDataBase.m; sourceTree = "<group>"; };
+		BE7C6985186836F000C4B675 /* Babyinfo-cwb.rdb */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Babyinfo-cwb.rdb"; sourceTree = "<group>"; };
+		BE7C698718692ED100C4B675 /* btn_syncBLE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_syncBLE.png; sourceTree = "<group>"; };
+		BE7C698818692ED100C4B675 /* btn_syncBLE@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_syncBLE@2x.png"; sourceTree = "<group>"; };
+		BE7C698B1869977300C4B675 /* MyDevicesTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDevicesTableCell.h; sourceTree = "<group>"; };
+		BE7C698C1869977300C4B675 /* MyDevicesTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDevicesTableCell.m; sourceTree = "<group>"; };
+		BE7C698E186997AA00C4B675 /* MyDevicesTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyDevicesTableCell.xib; sourceTree = "<group>"; };
+		BE7C699018699B8C00C4B675 /* temp_icon_ADD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = temp_icon_ADD.png; sourceTree = "<group>"; };
+		BE7C699118699B8C00C4B675 /* temp_icon_ADD@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "temp_icon_ADD@2x.png"; sourceTree = "<group>"; };
 		CE01679D174B059000462363 /* btn_delete.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_delete.png; sourceTree = "<group>"; };
 		CE01679E174B059000462363 /* btn_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_delete@2x.png"; sourceTree = "<group>"; };
 		CE01679F174B059000462363 /* btn_delete_focus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_delete_focus.png; sourceTree = "<group>"; };
@@ -1386,6 +1440,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE7C69361867DCCE00C4B675 /* MobileCoreServices.framework in Frameworks */,
 				48013D3D185AE47900F483A6 /* CoreBluetooth.framework in Frameworks */,
 				7215972517453680006FD415 /* CoreGraphics.framework in Frameworks */,
 				483D08D318164C9B00E720E6 /* CoreTelephony.framework in Frameworks */,
@@ -1710,6 +1765,7 @@
 		4855BCF21830AF3E00F02A3E /* ThirdSDK */ = {
 			isa = PBXGroup;
 			children = (
+				BE7C69621867F1B300C4B675 /* ASIHTTPRequest */,
 				48152E3018487EB0009A4900 /* DXAlertView */,
 				48152DD018486AEA009A4900 /* EGO_Refresh */,
 				489AABF2180E777200EB607E /* RNGridMenu */,
@@ -1758,6 +1814,8 @@
 				CE0C33D717618AC200B1B683 /* DataBase.m */,
 				48357E211846ED2A00BCF799 /* EnvironmentAdviceDataBase.h */,
 				48357E221846ED2A00BCF799 /* EnvironmentAdviceDataBase.m */,
+				BE7C698218681A2000C4B675 /* SuggestionDataBase.h */,
+				BE7C698318681A2000C4B675 /* SuggestionDataBase.m */,
 			);
 			name = LocalData;
 			sourceTree = "<group>";
@@ -1802,6 +1860,7 @@
 				CE31A10B177AAF8400F7EAE0 /* libicucore.dylib */,
 				7215975317453C52006FD415 /* libsqlite3.dylib */,
 				CE248CBB1759D7EF0058530A /* libxml2.2.dylib */,
+				BE7C69351867DCCE00C4B675 /* MobileCoreServices.framework */,
 				48013D3C185AE47900F483A6 /* CoreBluetooth.framework */,
 				7215972417453680006FD415 /* CoreGraphics.framework */,
 				7215972217453680006FD415 /* Foundation.framework */,
@@ -2159,6 +2218,7 @@
 		7215972717453680006FD415 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BE7C6985186836F000C4B675 /* Babyinfo-cwb.rdb */,
 				CE23978C176EE37B0096E033 /* Babyinfo.rdb */,
 				7215972817453680006FD415 /* Amoy Baby Care-Info.plist */,
 				7215972917453680006FD415 /* InfoPlist.strings */,
@@ -2217,6 +2277,7 @@
 		72159749174536D6006FD415 /* PublicClass */ = {
 			isa = PBXGroup;
 			children = (
+				BE7C69311867D7D100C4B675 /* ASIHTTPController */,
 				48013D33185ADF7F00F483A6 /* BLEController */,
 				4855BCF81830B0CB00F02A3E /* MyTabBarController */,
 				4855BCF71830B0AD00F02A3E /* PublicFunction */,
@@ -2327,6 +2388,9 @@
 				BE5997C41861930A008D3F6C /* MyDevicesTableViewController.h */,
 				BE5997C51861930A008D3F6C /* MyDevicesTableViewController.m */,
 				BE5997C61861930A008D3F6C /* MyDevicesTableViewController.xib */,
+				BE7C698B1869977300C4B675 /* MyDevicesTableCell.h */,
+				BE7C698C1869977300C4B675 /* MyDevicesTableCell.m */,
+				BE7C698E186997AA00C4B675 /* MyDevicesTableCell.xib */,
 			);
 			name = Bluetooth;
 			sourceTree = "<group>";
@@ -2334,10 +2398,52 @@
 		BE5997D118619339008D3F6C /* bluetooth */ = {
 			isa = PBXGroup;
 			children = (
+				BE7C699018699B8C00C4B675 /* temp_icon_ADD.png */,
+				BE7C699118699B8C00C4B675 /* temp_icon_ADD@2x.png */,
+				BE7C698718692ED100C4B675 /* btn_syncBLE.png */,
+				BE7C698818692ED100C4B675 /* btn_syncBLE@2x.png */,
 				BE5997D218619339008D3F6C /* lookingDevice.jpg */,
 				BE5997D318619339008D3F6C /* scanfail_1.jpg */,
 			);
 			path = bluetooth;
+			sourceTree = "<group>";
+		};
+		BE7C69311867D7D100C4B675 /* ASIHTTPController */ = {
+			isa = PBXGroup;
+			children = (
+				BE7C69321867D87000C4B675 /* ASIHTTPController.h */,
+				BE7C69331867D87000C4B675 /* ASIHTTPController.m */,
+			);
+			name = ASIHTTPController;
+			sourceTree = "<group>";
+		};
+		BE7C69621867F1B300C4B675 /* ASIHTTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				BE7C697F1867F33100C4B675 /* Reachability.h */,
+				BE7C69801867F33100C4B675 /* Reachability.m */,
+				BE7C69631867F1B300C4B675 /* ASIAuthenticationDialog.h */,
+				BE7C69641867F1B300C4B675 /* ASIAuthenticationDialog.m */,
+				BE7C69651867F1B300C4B675 /* ASICacheDelegate.h */,
+				BE7C69661867F1B300C4B675 /* ASIDataCompressor.h */,
+				BE7C69671867F1B300C4B675 /* ASIDataCompressor.m */,
+				BE7C69681867F1B300C4B675 /* ASIDataDecompressor.h */,
+				BE7C69691867F1B300C4B675 /* ASIDataDecompressor.m */,
+				BE7C696A1867F1B300C4B675 /* ASIDownloadCache.h */,
+				BE7C696B1867F1B300C4B675 /* ASIDownloadCache.m */,
+				BE7C696C1867F1B300C4B675 /* ASIFormDataRequest.h */,
+				BE7C696D1867F1B300C4B675 /* ASIFormDataRequest.m */,
+				BE7C696E1867F1B300C4B675 /* ASIHTTPRequest.h */,
+				BE7C696F1867F1B300C4B675 /* ASIHTTPRequest.m */,
+				BE7C69701867F1B300C4B675 /* ASIHTTPRequestConfig.h */,
+				BE7C69711867F1B300C4B675 /* ASIHTTPRequestDelegate.h */,
+				BE7C69721867F1B300C4B675 /* ASIInputStream.h */,
+				BE7C69731867F1B300C4B675 /* ASIInputStream.m */,
+				BE7C69741867F1B300C4B675 /* ASINetworkQueue.h */,
+				BE7C69751867F1B300C4B675 /* ASINetworkQueue.m */,
+				BE7C69761867F1B300C4B675 /* ASIProgressDelegate.h */,
+			);
+			path = ASIHTTPRequest;
 			sourceTree = "<group>";
 		};
 		CE01679C174B059000462363 /* 设置 */ = {
@@ -2948,6 +3054,7 @@
 				CE0167BF174B059000462363 /* input3.png in Resources */,
 				CE0167C0174B059000462363 /* input3@2x.png in Resources */,
 				CE0167C1174B059000462363 /* input_single.png in Resources */,
+				BE7C699318699B8C00C4B675 /* temp_icon_ADD@2x.png in Resources */,
 				48152DDB18486AFB009A4900 /* guide_3.png in Resources */,
 				48F6ABAA18710CBB0032045E /* set_switch_on_off_bg@2x.png in Resources */,
 				485749E118332860000D921B /* Icon-Small.png in Resources */,
@@ -3062,6 +3169,7 @@
 				CE016877174B49D300462363 /* icon_sound@2x.png in Resources */,
 				CE016878174B49D300462363 /* icon_temperature.png in Resources */,
 				CE016879174B49D300462363 /* icon_temperature@2x.png in Resources */,
+				BE7C698A18692ED100C4B675 /* btn_syncBLE@2x.png in Resources */,
 				48DEA7BA17F4699700A11316 /* Bath_6.jpg in Resources */,
 				48152E0F18486C66009A4900 /* blueArrow.png in Resources */,
 				CE01687A174B49D300462363 /* icon_timing.png in Resources */,
@@ -3273,6 +3381,7 @@
 				48EC1DD11861772300965254 /* CustomNotifyViewController.xib in Resources */,
 				CE638B28174F4FC2009A60AB /* btn_sleep_focus.png in Resources */,
 				48DEA7AC17F467A000A11316 /* Sleep_3.jpg in Resources */,
+				BE7C6986186836F000C4B675 /* Babyinfo-cwb.rdb in Resources */,
 				CE638B29174F4FC2009A60AB /* btn_sleep_focus@2x.png in Resources */,
 				CE638B2A174F4FC2009A60AB /* btn_year.png in Resources */,
 				CE638B2B174F4FC2009A60AB /* btn_year@2x.png in Resources */,
@@ -3282,6 +3391,7 @@
 				CE638B2F174F4FC2009A60AB /* histogram_blue@2x.png in Resources */,
 				CE638B30174F4FC2009A60AB /* histogram_green.png in Resources */,
 				CE638B31174F4FC2009A60AB /* histogram_green@2x.png in Resources */,
+				BE7C698918692ED100C4B675 /* btn_syncBLE.png in Resources */,
 				CE638B32174F4FC2009A60AB /* histogram_orange.png in Resources */,
 				CE638B33174F4FC2009A60AB /* histogram_orange@2x.png in Resources */,
 				48EC1DC5185EF4A300965254 /* DurationPickerView.xib in Resources */,
@@ -3308,6 +3418,7 @@
 				48152E0E18486C66009A4900 /* background@2x.png in Resources */,
 				48EC1DD71862CE2000965254 /* CustonTimeViewController.xib in Resources */,
 				CE638B43174F4FC2009A60AB /* label3_sum_focus@2x.png in Resources */,
+				BE7C698F186997AA00C4B675 /* MyDevicesTableCell.xib in Resources */,
 				CE638B44174F4FC2009A60AB /* line.png in Resources */,
 				CE638B45174F4FC2009A60AB /* line@2x.png in Resources */,
 				CE638B46174F4FC2009A60AB /* line_axis@2x.png in Resources */,
@@ -3342,6 +3453,7 @@
 				48152E2318486C66009A4900 /* send_selected@2x.png in Resources */,
 				CE075A521750A51D00C57E27 /* save_wet_focus@2x.png in Resources */,
 				CE075A531750A51D00C57E27 /* save_dirty_focus@2x.png in Resources */,
+				BE7C699218699B8C00C4B675 /* temp_icon_ADD.png in Resources */,
 				CEF1F49A1754B4EA005B3ECD /* process_feed.png in Resources */,
 				CEF1F49B1754B4EA005B3ECD /* process_feed@2x.png in Resources */,
 				CE0D0EBB17573B1A005A3200 /* btn_connect.png in Resources */,
@@ -3405,6 +3517,7 @@
 				48B78141182A20610073EEBD /* CustomURLCache.m in Sources */,
 				48152E4E1851B842009A4900 /* MyLocalNofityViewController.m in Sources */,
 				485749961831C3D1000D921B /* NotifyViewController.m in Sources */,
+				BE7C697B1867F1B300C4B675 /* ASIFormDataRequest.m in Sources */,
 				7215972D17453680006FD415 /* main.m in Sources */,
 				48EC1DD01861772300965254 /* CustomNotifyViewController.m in Sources */,
 				48152DF318486B13009A4900 /* UMFeedbackTableViewCellRight.m in Sources */,
@@ -3413,6 +3526,7 @@
 				48EC1DC818603B3700965254 /* LocalNotifyCell.m in Sources */,
 				F3F09B5D1745CBCE006CB06D /* SettingViewController.m in Sources */,
 				F3F09B6C1745CC15006CB06D /* HomeViewController.m in Sources */,
+				BE7C697C1867F1B300C4B675 /* ASIHTTPRequest.m in Sources */,
 				F3F09B841745DE64006CB06D /* MMXTabBarController.m in Sources */,
 				48EC1DD61862CE2000965254 /* CustonTimeViewController.m in Sources */,
 				48152DD318486AEA009A4900 /* UMEGORefreshTableHeaderView.m in Sources */,
@@ -3425,12 +3539,14 @@
 				72FAFDA01746A14400901B8B /* CacheFileUtil.m in Sources */,
 				4855BD071830D80300F02A3E /* InfomationItem.m in Sources */,
 				4855BCA5182CCCB900F02A3E /* MMVectorImage.m in Sources */,
+				BE7C697D1867F1B300C4B675 /* ASIInputStream.m in Sources */,
 				485F3F4F17F16E3800BD876F /* DataCustomCell.m in Sources */,
 				CECE7F8E174A214F0036D0BC /* SettingItem.m in Sources */,
 				CE0167D4174B217C00462363 /* CopyrightViewController.m in Sources */,
 				CE0167DB174B45AB00462363 /* feedViewController.m in Sources */,
 				CE0168AB174B506A00462363 /* SuggestView.m in Sources */,
 				CE3826EE174DEAE2009AD8DA /* diaperViewController.m in Sources */,
+				BE7C69781867F1B300C4B675 /* ASIDataCompressor.m in Sources */,
 				48B78142182A20610073EEBD /* Util.m in Sources */,
 				485F3F4A17F07CDA00BD876F /* OpenFunction.m in Sources */,
 				CE3826F3174DEAFA009AD8DA /* sleepViewController.m in Sources */,
@@ -3440,6 +3556,7 @@
 				CE638AB3174F4899009A60AB /* FMDatabase.m in Sources */,
 				BE5997C91861930A008D3F6C /* LookingForDeviceViewController.m in Sources */,
 				CE638AB4174F4899009A60AB /* FMDatabaseAdditions.m in Sources */,
+				BE7C69341867D87000C4B675 /* ASIHTTPController.m in Sources */,
 				485749A4183205A3000D921B /* NotifyItem.m in Sources */,
 				489AABF1180D2D1100EB607E /* ChineseToPinyin.m in Sources */,
 				48357E2A18473EC400BCF799 /* WeatherAdviseViewController.m in Sources */,
@@ -3453,22 +3570,27 @@
 				CE075A37175081AE00C57E27 /* save_feedview.m in Sources */,
 				CE075A3A1750820C00C57E27 /* save_diaperview.m in Sources */,
 				CE075A3D1750821E00C57E27 /* save_sleepview.m in Sources */,
+				BE7C697E1867F1B300C4B675 /* ASINetworkQueue.m in Sources */,
 				CE075A401750822D00C57E27 /* save_playview.m in Sources */,
 				4855BC9E182CCCB900F02A3E /* MMProgressHUD+Animations.m in Sources */,
+				BE7C69811867F33100C4B675 /* Reachability.m in Sources */,
 				48013D37185ADFC300F483A6 /* BLEController.m in Sources */,
 				4855BD011830C8C000F02A3E /* InformationCenterViewController.m in Sources */,
 				CE075A431750824100C57E27 /* save_bathview.m in Sources */,
 				48357E2618472BB500BCF799 /* AdviseLevel.m in Sources */,
 				4855BCA3182CCCB900F02A3E /* MMProgressHUDWindow.m in Sources */,
 				CEF1F4971754AEAC005B3ECD /* ActivityItem.m in Sources */,
+				BE7C698418681A2000C4B675 /* SuggestionDataBase.m in Sources */,
 				CEDBEAB41755DD660006828A /* Weather.m in Sources */,
 				48B7813A182A1D500073EEBD /* MBProgressHUD.m in Sources */,
 				48152DF418486B13009A4900 /* UMFeedbackViewController.m in Sources */,
 				48B78135182A0FD30073EEBD /* TipsWebViewController.m in Sources */,
 				48152E2E1848721F009A4900 /* GuideViewController.m in Sources */,
 				CEDBEABE1755FD840006828A /* GDataXMLNode.m in Sources */,
+				BE7C69791867F1B300C4B675 /* ASIDataDecompressor.m in Sources */,
 				489AABF5180E777200EB607E /* RNGridMenu.m in Sources */,
 				4855BCA0182CCCB900F02A3E /* MMProgressHUD.m in Sources */,
+				BE7C698D1869977300C4B675 /* MyDevicesTableCell.m in Sources */,
 				CE0D0EAD175735B3005A3200 /* WeatherView.m in Sources */,
 				CE0D0ECB17574AFF005A3200 /* Environmentitem.m in Sources */,
 				F3C321D7175DD2E500F2BD7F /* currentdate.m in Sources */,
@@ -3476,6 +3598,7 @@
 				CE0C33D017618A2100B1B683 /* MyCPTTheme.m in Sources */,
 				48152DF218486B13009A4900 /* UMFeedbackTableViewCellLeft.m in Sources */,
 				CE0C33D817618AC200B1B683 /* DataBase.m in Sources */,
+				BE7C69771867F1B300C4B675 /* ASIAuthenticationDialog.m in Sources */,
 				485749A01831C423000D921B /* MissionViewController.m in Sources */,
 				48152E3B18487EB0009A4900 /* DXAlertView.m in Sources */,
 				48F6AB931867D3AC0032045E /* LocalNotify.m in Sources */,
@@ -3485,6 +3608,7 @@
 				F365CADC176C537900EA1406 /* CustumCell.m in Sources */,
 				CE239796176EE4A50096E033 /* BabyinfoViewController.m in Sources */,
 				BE5997C71861930A008D3F6C /* BindingDeviceViewController.m in Sources */,
+				BE7C697A1867F1B300C4B675 /* ASIDownloadCache.m in Sources */,
 				CE1D69C81772958900561EBF /* AdviseScrollview.m in Sources */,
 				48B4C0B917DEEF7F0099D986 /* AdviseMasterViewController.m in Sources */,
 				48140BC217E03EBA0049EE17 /* AdviseData.m in Sources */,
@@ -3601,6 +3725,7 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(SRCROOT)/UMSocial_Sdk_3.1/frameworks/TencentOpenAPI",
+					"/Users/chenweibin/源码学习/资源库",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Parenting/Amoy Baby Care-Prefix.pch";
@@ -3647,6 +3772,7 @@
 					"$(inherited)",
 					"$(SRCROOT)",
 					"$(SRCROOT)/UMSocial_Sdk_3.1/frameworks/TencentOpenAPI",
+					"/Users/chenweibin/源码学习/资源库",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Parenting/Amoy Baby Care-Prefix.pch";

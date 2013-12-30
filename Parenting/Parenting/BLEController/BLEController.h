@@ -15,6 +15,7 @@
 -(void)BLEPowerOff:(BOOL)isPowerOff;
 -(void)DidConnected:(BOOL)isConnected;
 -(void)RecvBTData:(NSData*)recvdata;
+-(void)RecvDataFinish:(BOOL)isFinished;
 @end
 
 @interface BLEController : NSObject{
@@ -30,5 +31,6 @@
 -(void)bleconnect;
 -(void)bledisconnect;
 -(void)senddata:(NSData*)sendData;
-
+-(void)setSystemTime;
+- (void)getPressKeyHistory:(int)type;
 @end

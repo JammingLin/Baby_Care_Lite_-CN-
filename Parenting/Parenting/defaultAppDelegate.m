@@ -9,6 +9,7 @@
 #import "defaultAppDelegate.h"
 #import "APService.h"
 #import "UMSocial.h"
+#import "ASIHTTPController.h"
 
 @implementation defaultAppDelegate
 
@@ -94,6 +95,20 @@ void UncaughtExceptionHandler(NSException *exception) {
     NSNotificationCenter *defaultCenter = [NSNotificationCenter defaultCenter];
     [defaultCenter addObserver:self selector:@selector(networkDidReceiveMessage:) name:kAPNetworkDidReceiveMessageNotification object:nil];
     
+    //复制babyinfo.rdb到document才
+    if (![[NSUserDefaults standardUserDefaults] objectForKey:@"ISEXISIT_SUGGESTION"])
+    {
+        NSString *document  = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+        NSString *newFile = [document stringByAppendingPathComponent:@"BabySuggestion.rdb"];
+        NSString *oldFile = [[NSBundle mainBundle] pathForResource:@"Babyinfo-cwb" ofType:@"rdb"];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        [fileManager copyItemAtPath:oldFile toPath:newFile error:nil];
+        [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"ISEXISIT_SUGGESTION"];
+    }
+    //同步数据
+    ASIHTTPController *aSIHTTPController = [[ASIHTTPController alloc] init];
+    [aSIHTTPController getSyncCount];
+//    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"BLEPERIPHERAL_ACTIVITY" ];
     return YES;
 }
 

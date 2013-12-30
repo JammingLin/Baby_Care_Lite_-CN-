@@ -13,6 +13,7 @@
 {
     NSString *deviceName;
     BOOL isTimeOut;
+    BOOL isFound;
     NSTimer *timer;
     NSMutableArray  *peripherals;
 }
