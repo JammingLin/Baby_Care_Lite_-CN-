@@ -794,18 +794,18 @@
     else {
         //Peripherals的名字跟配件名字匹配 如果不匹配还是提示错误
         if (isFound) {
-            //NSString *sysPeripheralsName =[[NSUserDefaults standardUserDefaults] objectForKey:@"BLEPERIPHERAL_ACTIVITY"];
-            //if ([sysPeripheralsName isEqualToString:[[foundPeripherals objectAtIndex:0] name]])
-            //{
+            NSString *sysPeripheralsName =[[NSUserDefaults standardUserDefaults] objectForKey:@"BLEPERIPHERAL_ACTIVITY"];
+            if ([sysPeripheralsName isEqualToString:[[foundPeripherals objectAtIndex:0] name]])
+            {
                 //同步数据
                 [bleController bleconnect];
-            //}else
-            //{
-            //    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"同步失败,请确定\n①手机蓝牙已开启\n②配件已开启并在手机附近" delegate:self cancelButtonTitle:@"确定" //otherButtonTitles:nil];
-             //   [alert show];
-           // }
-            //isFound = NO;
-            //[bleController stopscan];
+            }else
+            {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"同步失败,请确定\n①手机蓝牙已开启\n②配件已开启并在手机附近" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
+                [alert show];
+            }
+            isFound = NO;
+            [bleController stopscan];
         }
     }
 }
@@ -814,11 +814,7 @@
 -(void)DidConnected:(BOOL)isConnected
 {
     if (isConnected) {
-        //[bleController getPressKeyHistory:1];
-        //[bleController getTemperature];
-        //[bleController getLight];
-        //[bleController getUV];
-        [bleController getMicrophone:0];
+        [bleController getPressKeyHistory:1];
     }
 }
 

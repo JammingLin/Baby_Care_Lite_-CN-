@@ -88,11 +88,7 @@
     
     connectPeripheral = peripheral;
     [self.bleControllerDelegate DidConnected:YES];
-    
-    //[self setSystemTime];
-    //[self getTemperature];
-    [self getLight];
-    //[self getUV];
+    [self setSystemTime];
 }
 
 - (void) didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error{
@@ -109,15 +105,7 @@
 - (void) didReceiveData:(CBPeripheral *)peripheral recvData:(NSData *)recvData
 {
     NSLog(@"uart recv(%d):%@", [recvData length], recvData);
-    count++;
-    if (count>10)
-    {
-        [self getMicrophone:1];
-    }
-    else
-    {
-        [self RecvBTData:recvData];
-    }
+    [self RecvBTData:recvData];
 }
 #pragma -mark pid deal
 - (void) resp_set_sys_time : (NSData*) data
