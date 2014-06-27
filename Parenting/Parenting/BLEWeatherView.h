@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BLEController.h"
 @class AdviseData;
 @class AdviseLevel;
 @interface BLEWeatherView : UIView<UITableViewDataSource,UITableViewDelegate>

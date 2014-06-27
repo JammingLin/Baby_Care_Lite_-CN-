@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "UartLib.h"
 
 @protocol BLEControllerDelegate<NSObject>
 @optional

@@ -101,27 +101,27 @@
     
     
     dirty=[UIButton buttonWithType:UIButtonTypeCustom];
-    dirty.frame=CGRectMake(225, 160, 50, 50);
-    [dirty setBackgroundImage:[UIImage imageNamed:@"save_dirty.png"] forState:UIControlStateNormal];
-    [dirty setBackgroundImage:[UIImage imageNamed:@"save_dirty_focus.png"] forState:UIControlStateDisabled];
+    dirty.frame=CGRectMake(225, 160, 89/2.0, 89/2.0);
+    [dirty setBackgroundImage:[UIImage imageNamed:@"panels_icon_dirty"] forState:UIControlStateNormal];
+    [dirty setBackgroundImage:[UIImage imageNamed:@"panels_icon_dirty_choose"] forState:UIControlStateDisabled];
     [imageview addSubview:dirty];
     dirty.tag=201;
     [dirty addTarget:self action:@selector(changeStatus:) forControlEvents:
      UIControlEventTouchUpInside];
     
     dry=[UIButton buttonWithType:UIButtonTypeCustom];
-    dry.frame=CGRectMake(115, 160, 50, 50);
-    [dry setBackgroundImage:[UIImage imageNamed:@"save_dry.png"] forState:UIControlStateNormal];
-    [dry setBackgroundImage:[UIImage imageNamed:@"save_dry_focus.png"] forState:UIControlStateDisabled];
+    dry.frame=CGRectMake(115, 160, 89/2.0, 89/2.0);
+    [dry setBackgroundImage:[UIImage imageNamed:@"panels_icon_both"] forState:UIControlStateNormal];
+    [dry setBackgroundImage:[UIImage imageNamed:@"panels_icon_both_choose"] forState:UIControlStateDisabled];
     [imageview addSubview:dry];
     dry.tag=202;
     [dry addTarget:self action:@selector(changeStatus:) forControlEvents:
      UIControlEventTouchUpInside];
     
     wet=[UIButton buttonWithType:UIButtonTypeCustom];
-    wet.frame=CGRectMake(170, 160, 50, 50);
-    [wet setBackgroundImage:[UIImage imageNamed:@"save_wet.png"] forState:UIControlStateNormal];
-    [wet setBackgroundImage:[UIImage imageNamed:@"save_wet_focus.png"] forState:UIControlStateDisabled];
+    wet.frame=CGRectMake(170, 160, 89/2.0, 89/2.0);
+    [wet setBackgroundImage:[UIImage imageNamed:@"panels_icon_wet"] forState:UIControlStateNormal];
+    [wet setBackgroundImage:[UIImage imageNamed:@"panels_icon_wet_choose"] forState:UIControlStateDisabled];
     [imageview addSubview:wet];
     wet.tag=203;
     [wet addTarget:self action:@selector(changeStatus:) forControlEvents:

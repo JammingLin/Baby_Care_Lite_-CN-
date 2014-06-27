@@ -220,54 +220,54 @@
     [startButton addTarget:self action:@selector(startOrPause:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *dry=[UIButton buttonWithType:UIButtonTypeCustom];
-    dry.frame=CGRectMake(160-100-20, 250+G_YADDONVERSION, 63, 63);
-    [dry setBackgroundImage:[UIImage imageNamed:@"btn_dry.png"] forState:UIControlStateNormal];
-    [dry setBackgroundImage:[UIImage imageNamed:@"btn_dry_focus.png"] forState:UIControlStateDisabled];
+    dry.frame=CGRectMake(5, 220, 189/2.0, 189/2.0);
+    [dry setBackgroundImage:[UIImage imageNamed:@"icon_both"] forState:UIControlStateNormal];
+    [dry setBackgroundImage:[UIImage imageNamed:@"icon_both_choose"] forState:UIControlStateDisabled];
     [self.view addSubview:dry];
     dry.tag=201;
     [dry addTarget:self action:@selector(Activityselected:) forControlEvents:UIControlEventTouchUpInside];
     [self Activityselected:dry];
     
     UIButton *wet=[UIButton buttonWithType:UIButtonTypeCustom];
-    wet.frame=CGRectMake(160-31.5, 250+G_YADDONVERSION, 63, 63);
-    [wet setBackgroundImage:[UIImage imageNamed:@"btn_wed.png"] forState:UIControlStateNormal];
-    [wet setBackgroundImage:[UIImage imageNamed:@"btn_wed_focus.png"] forState:UIControlStateDisabled];
+    wet.frame=CGRectMake(5+189/2.0+(320-10-189/2.0*3)/2.0, 220, 189/2.0, 189/2.0);
+    [wet setBackgroundImage:[UIImage imageNamed:@"icon_wet"] forState:UIControlStateNormal];
+    [wet setBackgroundImage:[UIImage imageNamed:@"icon_wet_choose"] forState:UIControlStateDisabled];
     [self.view addSubview:wet];
     wet.tag=202;
     [wet addTarget:self action:@selector(Activityselected:) forControlEvents:UIControlEventTouchUpInside];
     
     UIButton *dirty=[UIButton buttonWithType:UIButtonTypeCustom];
-    dirty.frame=CGRectMake(160+100-63+20, 250+G_YADDONVERSION, 63, 63);
-    [dirty setBackgroundImage:[UIImage imageNamed:@"btn_dirty.png"] forState:UIControlStateNormal];
-    [dirty setBackgroundImage:[UIImage imageNamed:@"btn_dirty_focus.png"] forState:UIControlStateDisabled];
+    dirty.frame=CGRectMake(320-189/2.0-5, 220, 189/2.0, 189/2.0);
+    [dirty setBackgroundImage:[UIImage imageNamed:@"icon_dirty"] forState:UIControlStateNormal];
+    [dirty setBackgroundImage:[UIImage imageNamed:@"icon_dirty_choose"] forState:UIControlStateDisabled];
     [self.view addSubview:dirty];
     dirty.tag=203;
     [dirty addTarget:self action:@selector(Activityselected:) forControlEvents:UIControlEventTouchUpInside];
 
     
-    UILabel *labdry=[[UILabel alloc]init];
-    labdry.center=CGPointMake(dry.center.x, 330+G_YADDONVERSION);
-    labdry.bounds=CGRectMake(0, 0, 63, 30);
-    labdry.text=NSLocalizedString(@"Dry",nil);
-    labdry.textAlignment=NSTextAlignmentCenter;
-    labdry.backgroundColor=[UIColor clearColor];
-    [self.view addSubview:labdry];
-    
-    UILabel *labwet=[[UILabel alloc]init];
-    labwet.center=CGPointMake(wet.center.x, 330+G_YADDONVERSION);
-    labwet.bounds=CGRectMake(0, 0, 63, 30);
-    labwet.text=NSLocalizedString(@"Wet",nil);
-    labwet.textAlignment=NSTextAlignmentCenter;
-    labwet.backgroundColor=[UIColor clearColor];
-    [self.view addSubview:labwet];
-    
-    UILabel *labdirty=[[UILabel alloc]init];
-    labdirty.center=CGPointMake(dirty.center.x, 330+G_YADDONVERSION);
-    labdirty.bounds=CGRectMake(0, 0, 63, 30);
-    labdirty.text=NSLocalizedString(@"Dirty",nil);
-    labdirty.textAlignment=NSTextAlignmentCenter;
-    labdirty.backgroundColor=[UIColor clearColor];
-    [self.view addSubview:labdirty];
+//    UILabel *labdry=[[UILabel alloc]init];
+//    labdry.center=CGPointMake(dry.center.x, 330+G_YADDONVERSION);
+//    labdry.bounds=CGRectMake(0, 0, 63, 30);
+//    //labdry.text=NSLocalizedString(@"Dry",nil);
+//    labdry.textAlignment=NSTextAlignmentCenter;
+//    labdry.backgroundColor=[UIColor clearColor];
+//    [self.view addSubview:labdry];
+//    
+//    UILabel *labwet=[[UILabel alloc]init];
+//    labwet.center=CGPointMake(wet.center.x, 330+G_YADDONVERSION);
+//    labwet.bounds=CGRectMake(0, 0, 63, 30);
+//    labwet.text=NSLocalizedString(@"Wet",nil);
+//    labwet.textAlignment=NSTextAlignmentCenter;
+//    labwet.backgroundColor=[UIColor clearColor];
+//    [self.view addSubview:labwet];
+//    
+//    UILabel *labdirty=[[UILabel alloc]init];
+//    labdirty.center=CGPointMake(dirty.center.x, 330+G_YADDONVERSION);
+//    labdirty.bounds=CGRectMake(0, 0, 63, 30);
+//    labdirty.text=NSLocalizedString(@"Dirty",nil);
+//    labdirty.textAlignment=NSTextAlignmentCenter;
+//    labdirty.backgroundColor=[UIColor clearColor];
+//    [self.view addSubview:labdirty];
 
     
     if ([UIScreen mainScreen].bounds.size.height==568) {
@@ -275,12 +275,12 @@
         
         startButton.center=CGPointMake(160, 400+G_YADDONVERSION);
         
-        fr=labdirty.frame;
-        labdirty.frame=CGRectMake(fr.origin.x, fr.origin.y+30, fr.size.width, fr.size.height);
-        fr=labdry.frame;
-        labdry.frame=CGRectMake(fr.origin.x, fr.origin.y+30, fr.size.width, fr.size.height);
-        fr=labwet.frame;
-        labwet.frame=CGRectMake(fr.origin.x, fr.origin.y+30, fr.size.width, fr.size.height);
+//        fr=labdirty.frame;
+//        labdirty.frame=CGRectMake(fr.origin.x, fr.origin.y+30, fr.size.width, fr.size.height);
+//        fr=labdry.frame;
+//        labdry.frame=CGRectMake(fr.origin.x, fr.origin.y+30, fr.size.width, fr.size.height);
+//        fr=labwet.frame;
+//        labwet.frame=CGRectMake(fr.origin.x, fr.origin.y+30, fr.size.width, fr.size.height);
         
         fr=wet.frame;
         wet.frame=CGRectMake(fr.origin.x, fr.origin.y+30, fr.size.width, fr.size.height);

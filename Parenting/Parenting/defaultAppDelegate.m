@@ -389,12 +389,4 @@ void UncaughtExceptionHandler(NSException *exception) {
     }
 }
 
--(BOOL)isBLEWeatherConnected
-{
-    if (bleweatherController) {
-        return [bleweatherController isConnected];
-    }
-    
-    return NO;
-}
 @end

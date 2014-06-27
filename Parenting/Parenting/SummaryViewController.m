@@ -940,18 +940,30 @@
         cell.minutesLable.textColor=cell.timeLable.textColor;
         SummaryItem *item=[ListArray objectAtIndex:indexPath.row];
         cell.timeLable.text = [currentdate dateForSummaryList:item.starttime];
-        cell.MarkLable.text = NSLocalizedString(item.type, nil);
         cell.minutesLable.text = item.duration;
-        
+        if ([item.type isEqualToString:@"Feed"]) {
+            if ([item.feed_type isEqualToString:@"0"]) {
+                cell.MarkLable.text = @"奶瓶喂食";
+                cell.minutesLable.text = item.amount;
+            }
+            else
+            {
+                cell.MarkLable.text = @"哺乳";
+            }
+        }
+        else
+        {
+            cell.MarkLable.text = NSLocalizedString(item.type, nil);
+        }
         if ([item.duration isEqualToString:NSLocalizedString(@"Wet", nil)]) {
             cell.minutesLable.textColor=[UIColor colorWithRed:0x82/255.0 green:0xC6/255.0 blue:0xE1/255.0 alpha:0xFF/255.0];
         }
         else if([item.duration isEqualToString:NSLocalizedString(@"Dry", nil)])
         {
-            cell.minutesLable.textColor=[UIColor colorWithRed:0xB6/255.0 green:0xB6/255.0 blue:0xB6/255.0 alpha:0xFF/255.0];
+            cell.minutesLable.textColor=[UIColor colorWithRed:0.684 green:0.409 blue:0.179 alpha:1.000];
         }
         else if ([item.duration isEqualToString:NSLocalizedString(@"Dirty", nil)]) {
-            cell.minutesLable.textColor=[UIColor colorWithRed:0xBC/255.0 green:0x97/255.0 blue:0x6A/255.0 alpha:0xFF/255.0];
+            cell.minutesLable.textColor=[UIColor colorWithRed:1.000 green:0.857 blue:0.062 alpha:1.000];
         }
         else
         {
@@ -1140,7 +1152,6 @@
         [tips setTipsUrl:url];
         [self.navigationController pushViewController:tips animated:YES];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"gototips"];
-
     }
 }
 

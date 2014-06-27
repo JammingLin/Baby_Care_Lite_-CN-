@@ -20,6 +20,8 @@
 "navRegister" = "Register";
 "All"="All";
 "Feed"="Feed";
+"0"="Bottle";
+"1"="Breast";
 "Diaper"="Diaper";
 "Sleep"="Sleep";
 "Bath"="Bath";

@@ -26,7 +26,6 @@
     SummaryViewController       *summaryViewController;
     HomeViewController          *homeViewController;
     GuideViewController         *guideViewController;
-    BLEWeatherController        *bleweatherController;
     UINavigationController *settingNavigationViewController;
     UINavigationController *adviseNavigationViewController;
     UINavigationController *summaryNavigationViewController;

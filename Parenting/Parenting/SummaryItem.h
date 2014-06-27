@@ -12,4 +12,6 @@
 @property(nonatomic,strong)NSDate *starttime;
 @property(nonatomic,strong)NSString *type;
 @property(nonatomic,strong)NSString *duration;
+@property(nonatomic,strong)NSString *amount;
+@property(nonatomic,strong)NSString *feed_type;
 @end

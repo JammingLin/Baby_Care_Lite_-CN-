@@ -76,12 +76,6 @@
         [self.weather refreshweather];
     }
     
-    if (self.bleweather)
-    {
-        self.bleweather.chooseType = QCM_TYPE_FEED;
-        [self.bleweather refreshweather];
-    }
-    
     if (startButton != nil) {
         startButton.enabled = YES;
     }
@@ -655,7 +649,6 @@
     if (sender.tag==501) {
         another=(UIButton*)[self.view viewWithTag:502];
         weather.hidden=NO;
-        _bleweather.hidden = YES;
         pmintro.hidden = NO;
         another.enabled=YES;
     }
@@ -663,8 +656,6 @@
     {
         another=(UIButton*)[self.view viewWithTag:501];
         weather.hidden=YES;
-        _bleweather.hidden = NO;
-        [self.bleweather refreshweather];
         pmintro.hidden = YES;
         another.enabled=YES;
     }

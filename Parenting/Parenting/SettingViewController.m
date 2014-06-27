@@ -13,7 +13,6 @@
 #import "defaultAppDelegate.h"
 #import "UMFeedbackViewController.h"
 #import "MyLocalNofityViewController.h"
-#import "MyDevicesTableViewController.h"
 #import "LoginViewController.h"
 
 @interface SettingViewController ()
@@ -391,11 +390,6 @@ messageView;
         navigationController.navigationBar.barStyle = UIBarStyleBlack;
         navigationController.navigationBar.translucent = NO;
         [self presentViewController:navigationController animated:YES completion:^{}];//        [self onlineFeedBack];
-    }
-    else if ([item.name isEqualToString:NSLocalizedString(@"My Devices", nil)]){
-        //undone feedback
-        MyDevicesTableViewController *myDevicesViewController = [[MyDevicesTableViewController alloc] initWithNibName:@"MyDevicesTableViewController" bundle:nil];
-        [self.navigationController pushViewController:myDevicesViewController animated:YES];
     }
     else if([item.name isEqualToString:NSLocalizedString(@"Submit feedback/improvements",nil)]){
         [self sendEMail];

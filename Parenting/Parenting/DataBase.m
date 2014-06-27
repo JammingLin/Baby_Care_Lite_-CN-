@@ -1596,7 +1596,9 @@
     while ([set next]) {
         SummaryItem *item=[[SummaryItem alloc]init];
         item.starttime=[set dateForColumn:@"starttime"];
-        item.type=[set stringForColumn:@"type"];
+        item.feed_type=[NSString stringWithFormat:@"%d",[set intForColumn:@"feedway"]];
+        item.type    = [set stringForColumn:@"type"];
+        item.amount  = [set stringForColumn:@"ozorlr"];
         item.duration=[self selectDurationfromStarttime:item.starttime Type:item.type];
         
         

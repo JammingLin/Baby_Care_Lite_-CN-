@@ -9,9 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "BabyinfoViewController.h"
-#import "BLEController.h"
 
-@interface HomeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,CLLocationManagerDelegate,NSURLConnectionDelegate,NSURLConnectionDataDelegate,UIActionSheetDelegate,UIAlertViewDelegate,BLEControllerDelegate>
+@interface HomeViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,CLLocationManagerDelegate,NSURLConnectionDelegate,NSURLConnectionDataDelegate,UIActionSheetDelegate,UIAlertViewDelegate>
 {
     NSTimer *timer;
     IBOutlet UITableView *datatable;
@@ -27,8 +26,7 @@
     UIView *titleView;
     UILabel *titleText;
     
-    BLEController *bleController;
-    CBPeripheral	*connectPeripheral;
+    //BLEController *bleController;
     BOOL isTimeOut;
     BOOL isFound;
     UIButton *buttonSyncBLE;

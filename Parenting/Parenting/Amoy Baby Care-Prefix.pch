@@ -28,10 +28,7 @@
 #import "DataBase.h"
 #import "ActivityItem.h"
 #import "WeatherView.h"
-#import "BLEWeatherView.h"
-#import "BLEWeatherController.h"
 #import "Weather.h"
-#import "BLEWeather.h"
 #import "FMDatabase.h"
 #import "SummaryItem.h"
 #import "OpenFunction.h"
@@ -44,7 +41,6 @@
 #import "AdviseLevel.h"
 #import "EnvironmentAdviceDataBase.h"
 #import "DXAlertView.h"
-#import "UartLib.h"
 #import "ASIHTTPController.h"
 #import "MTA.h"
 #define PHOTOPATH ([NSString stringWithFormat:@"%@/Documents/baby.png",NSHomeDirectory()])
